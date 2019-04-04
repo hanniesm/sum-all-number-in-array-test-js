@@ -1,41 +1,17 @@
 function sumItems(array) {
   let n = 0;
   // Sum all the numbers in the array
-  for (item of array) {
-    if (Array.isArray(item)) {
-      sumItems(item);
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+        n += sumItems(array[i])
     } else {
       // console.log(item);
-      n += item;
+      n += array[i];
     }
   }
-  return n
+  return n;
 }
 
 
 module.exports = sumItems;
 
-
-// function printItems(array) {
-//   for (item of array) {
-//     if (Array.isArray(item)) {
-//       printItems(item);
-//     } else {
-//       console.log(item)
-//     }
-//   }
-// }
-
-//this works if just print item, but doesn't add additional items to n
-// function sumItems(array) {
-//   // Sum all the numbers in the array
-//   let n = 0;
-//   for (item of array) {
-//     if (Array.isArray(item)) {
-//       sumItems(item);
-//     } else {
-//       n += item;
-//     }
-//   }
-//   return n;
-// }
